@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../l10n/app_localizations.dart';
-import '../utils/constants.dart';
 import '../services/preferences_service.dart';
 import '../services/speech_service.dart';
 import '../providers/language_provider.dart';
@@ -58,7 +57,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final prefs = Provider.of<PreferencesService>(context, listen: false);
     prefs.setFirstLaunch(false);
     prefs.setTutorialCompleted(true);
-    Navigator.pushReplacementNamed(context, AppConstants.routeHome);
+    // Requirement: show Login first, then navigate to Home.
+    Navigator.pushReplacementNamed(context, '/login');
   }
 
   @override

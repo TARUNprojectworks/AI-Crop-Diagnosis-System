@@ -9,7 +9,11 @@ import '../providers/connectivity_provider.dart';
 import '../l10n/app_localizations.dart';
 
 class CameraScreen extends StatefulWidget {
-  const CameraScreen({super.key});
+  /// When true, this screen is used as a tab inside [MainNavigation].
+  /// In that case we must NOT pop the Navigator (there is nothing to pop).
+  final bool embedded;
+
+  const CameraScreen({super.key, this.embedded = false});
 
   @override
   State<CameraScreen> createState() => _CameraScreenState();
@@ -19,13 +23,16 @@ class _CameraScreenState extends State<CameraScreen> {
   final ImagePicker _picker = ImagePicker();
   bool _isCapturing = false;
 
+  void _maybePop() {
+    if (!mounted) return;
+    if (widget.embedded) return;
+    Navigator.pop(context);
+  }
+
   @override
   void initState() {
     super.initState();
-    // Open camera immediately on screen load
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _takePhoto();
-    });
+    // Don't auto-launch camera, show options instead
   }
 
   Future<void> _takePhoto() async {
@@ -46,9 +53,7 @@ class _CameraScreenState extends State<CameraScreen> {
       if (photo != null && mounted) {
         await _handleCapturedMedia(photo);
       } else {
-        if (mounted) {
-          Navigator.pop(context);
-        }
+        _maybePop();
       }
     } catch (e) {
       if (mounted) {
@@ -60,7 +65,7 @@ class _CameraScreenState extends State<CameraScreen> {
             backgroundColor: Colors.red,
           ),
         );
-        Navigator.pop(context);
+        _maybePop();
       }
     } finally {
       if (mounted) {
@@ -106,8 +111,8 @@ class _CameraScreenState extends State<CameraScreen> {
           ),
         );
 
-        // Navigate back
-        Navigator.pop(context);
+        // Navigate back (only when opened as a route, not when embedded as a tab)
+        _maybePop();
       }
     } catch (e) {
       if (mounted) {
@@ -117,38 +122,109 @@ class _CameraScreenState extends State<CameraScreen> {
             backgroundColor: Colors.red,
           ),
         );
-        Navigator.pop(context);
+        _maybePop();
+      }
+    }
+  }
+
+  Future<void> _pickFromGallery() async {
+    if (_isCapturing) return;
+
+    setState(() {
+      _isCapturing = true;
+    });
+
+    try {
+      final XFile? photo = await _picker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1920,
+        maxHeight: 1080,
+        imageQuality: 85,
+      );
+
+      if (photo != null && mounted) {
+        await _handleCapturedMedia(photo);
+      } else {
+        if (mounted) {
+          setState(() {
+            _isCapturing = false;
+          });
+        }
+      }
+    } catch (e) {
+      if (mounted) {
+        final l10n = AppLocalizations.of(context)!;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('${l10n.error}: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+        setState(() {
+          _isCapturing = false;
+        });
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.close, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
+      appBar: widget.embedded
+          ? null
+          : AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: IconButton(
+                icon: const Icon(Icons.close, color: Colors.white),
+                onPressed: _maybePop,
+              ),
+            ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-            ),
-            const SizedBox(height: 24),
-            Text(
-              _isCapturing ? 'Opening camera...' : 'Loading...',
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 16,
+            if (_isCapturing) ...[
+              const CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               ),
-            ),
+              const SizedBox(height: 24),
+              const Text(
+                'Processing...',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
+              ),
+            ] else ...[
+              Icon(Icons.camera_alt,
+                  size: 100, color: theme.colorScheme.primary),
+              const SizedBox(height: 40),
+              ElevatedButton.icon(
+                onPressed: _takePhoto,
+                icon: const Icon(Icons.camera_alt),
+                label: const Text('Take Photo'),
+                style: ElevatedButton.styleFrom(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                ),
+              ),
+              const SizedBox(height: 16),
+              OutlinedButton.icon(
+                onPressed: _pickFromGallery,
+                icon: const Icon(Icons.photo_library),
+                label: const Text('Choose from Gallery'),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  side: const BorderSide(color: Colors.white),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                ),
+              ),
+            ],
           ],
         ),
       ),

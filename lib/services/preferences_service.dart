@@ -22,6 +22,31 @@ class PreferencesService {
   bool isFirstLaunch() => _prefs.getBool(AppConstants.keyFirstLaunch) ?? true;
   Future<void> setFirstLaunch(bool isFirst) => _prefs.setBool(AppConstants.keyFirstLaunch, isFirst);
 
-  bool isTutorialCompleted() => _prefs.getBool(AppConstants.keyTutorialCompleted) ?? false;
-  Future<void> setTutorialCompleted(bool completed) => _prefs.setBool(AppConstants.keyTutorialCompleted, completed);
+  bool isTutorialCompleted() =>
+      _prefs.getBool(AppConstants.keyTutorialCompleted) ?? false;
+  Future<void> setTutorialCompleted(bool completed) =>
+      _prefs.setBool(AppConstants.keyTutorialCompleted, completed);
+
+  // Voice / Accessibility
+  bool isVoiceEnabled() => _prefs.getBool(AppConstants.keyVoiceEnabled) ?? true;
+  Future<void> setVoiceEnabled(bool enabled) =>
+      _prefs.setBool(AppConstants.keyVoiceEnabled, enabled);
+
+  // Notifications (UI-only toggle; no push integration yet)
+  bool areNotificationsEnabled() =>
+      _prefs.getBool(AppConstants.keyNotificationsEnabled) ?? true;
+  Future<void> setNotificationsEnabled(bool enabled) =>
+      _prefs.setBool(AppConstants.keyNotificationsEnabled, enabled);
+
+  // Haptics (UI-only toggle)
+  bool areHapticsEnabled() =>
+      _prefs.getBool(AppConstants.keyHapticsEnabled) ?? true;
+  Future<void> setHapticsEnabled(bool enabled) =>
+      _prefs.setBool(AppConstants.keyHapticsEnabled, enabled);
+
+  // Auto-sync
+  bool isAutoSyncEnabled() =>
+      _prefs.getBool(AppConstants.keyAutoSyncEnabled) ?? true;
+  Future<void> setAutoSyncEnabled(bool enabled) =>
+      _prefs.setBool(AppConstants.keyAutoSyncEnabled, enabled);
 }

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // Light Mode Colors
-  static const Color lightPrimary = Color(0xFF4CAF50);
-  static const Color lightSecondary = Color(0xFF81C784);
-  static const Color lightBackground = Color(0xFFF5F5DC);
+  // Light Mode Colors - 65% Green, 35% White design
+  static const Color lightPrimary = Color(0xFF2E7D32); // Deep green
+  static const Color lightSecondary = Color(0xFF4CAF50); // Medium green
+  static const Color lightBackground = Color(0xFFFFFFFF); // White background
   static const Color lightSurface = Color(0xFFFFFFFF);
   static const Color lightError = Color(0xFFD32F2F);
   static const Color lightOnPrimary = Color(0xFFFFFFFF);
   static const Color lightOnBackground = Color(0xFF1B5E20);
-  static const Color lightOnSurface = Color(0xFF1B5E20);
+  static const Color lightOnSurface = Color(0xFF2E3A3B);
 
   // Dark Mode Colors
   static const Color darkPrimary = Color(0xFF8BC34A);

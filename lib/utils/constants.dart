@@ -31,6 +31,12 @@ class AppConstants {
   static const String keyFirstLaunch = 'firstLaunch';
   static const String keyTutorialCompleted = 'tutorialCompleted';
 
+  // Settings
+  static const String keyVoiceEnabled = 'voiceEnabled';
+  static const String keyNotificationsEnabled = 'notificationsEnabled';
+  static const String keyHapticsEnabled = 'hapticsEnabled';
+  static const String keyAutoSyncEnabled = 'autoSyncEnabled';
+
   // Supported Languages
   static const Map<String, String> supportedLanguages = {
     'en': 'English',

@@ -6,6 +6,8 @@ import 'services/preferences_service.dart';
 import 'services/speech_service.dart';
 import 'services/storage_service.dart';
 import 'services/sync_service.dart';
+import 'services/auth_service.dart';
+import 'services/tts_service.dart';
 import 'providers/theme_provider.dart';
 import 'providers/language_provider.dart';
 import 'providers/font_size_provider.dart';
@@ -18,14 +20,20 @@ void main() async {
   final prefs = await SharedPreferences.getInstance();
   final preferencesService = PreferencesService(prefs);
 
-  final speechService = SpeechService();
+  final speechService = SpeechService(preferencesService);
   await speechService.init();
+
+  final ttsService = TtsService(preferencesService);
+  await ttsService.init();
 
   final storageService = StorageService();
   final syncService = SyncService(storageService: storageService);
+  final authService = AuthService(prefs);
 
-  // Start auto-sync service
-  syncService.startAutoSync(interval: const Duration(minutes: 5));
+  // Start auto-sync service (if enabled)
+  if (preferencesService.isAutoSyncEnabled()) {
+    syncService.startAutoSync(interval: const Duration(minutes: 5));
+  }
 
   runApp(
     MultiProvider(
@@ -37,6 +45,7 @@ void main() async {
         ChangeNotifierProvider(
             create: (_) => FontSizeProvider(preferencesService)),
         ChangeNotifierProvider(create: (_) => ConnectivityProvider()),
+        ChangeNotifierProvider.value(value: authService),
         ChangeNotifierProxyProvider<ConnectivityProvider, SubmissionProvider>(
           create: (context) => SubmissionProvider(
             storageService: storageService,
@@ -55,6 +64,7 @@ void main() async {
           },
         ),
         Provider.value(value: speechService),
+        Provider.value(value: ttsService),
         Provider.value(value: storageService),
         Provider.value(value: syncService),
         Provider.value(value: preferencesService),
