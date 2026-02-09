@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
     final currentLang = languageProvider.currentLocale.languageCode;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -53,7 +53,6 @@ class HomeScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black87,
                       ),
                     ),
                     TextButton(
@@ -120,7 +119,7 @@ class HomeScreen extends StatelessWidget {
               Text(
                 'Welcome',
                 style: TextStyle(
-                  color: Colors.grey[700],
+                  color: theme.textTheme.bodySmall?.color?.withOpacity(0.7),
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
                 ),
@@ -160,14 +159,14 @@ class HomeScreen extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(Icons.light_mode, size: 16, color: Colors.grey[600]),
+        Icon(Icons.light_mode, size: 16, color: theme.iconTheme.color),
         Switch.adaptive(
           value: themeProvider.isDarkMode,
           onChanged: (_) => themeProvider.toggleTheme(),
           activeThumbColor: theme.colorScheme.primary,
           activeTrackColor: theme.colorScheme.primary.withValues(alpha: 0.35),
         ),
-        Icon(Icons.dark_mode, size: 16, color: Colors.grey[600]),
+        Icon(Icons.dark_mode, size: 16, color: theme.iconTheme.color),
       ],
     );
   }
@@ -180,9 +179,12 @@ class HomeScreen extends StatelessWidget {
     required String offlineLabel,
   }) {
     final label = isOnline ? onlineLabel : offlineLabel;
-    final subLabel = (!isOnline && pendingCount > 0) ? ' • $pendingCount pending' : '';
+    final subLabel =
+        (!isOnline && pendingCount > 0) ? ' • $pendingCount pending' : '';
 
-    final bg = isOnline ? Colors.green.withValues(alpha: 0.12) : Colors.red.withValues(alpha: 0.12);
+    final bg = isOnline
+        ? Colors.green.withValues(alpha: 0.12)
+        : Colors.red.withValues(alpha: 0.12);
     final fg = isOnline ? Colors.green : Colors.red;
 
     return Container(
@@ -271,6 +273,7 @@ class HomeScreen extends StatelessWidget {
     required String name,
     required VoidCallback onTap,
   }) {
+    final theme = Theme.of(context);
     return GestureDetector(
       onTap: onTap,
       child: Column(
@@ -279,7 +282,7 @@ class HomeScreen extends StatelessWidget {
             width: 70,
             height: 70,
             decoration: BoxDecoration(
-              color: Colors.grey[100],
+              color: theme.cardColor,
               borderRadius: BorderRadius.circular(16),
             ),
             child: Center(
@@ -292,10 +295,10 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             name,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w500,
-              color: Colors.black87,
+              color: theme.textTheme.bodyMedium?.color,
             ),
           ),
         ],
@@ -388,12 +391,12 @@ class HomeScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           'Quick Tips',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Colors.black87,
+            color: theme.textTheme.titleLarge?.color,
           ),
         ),
         const SizedBox(height: 16),
@@ -402,7 +405,7 @@ class HomeScreen extends StatelessWidget {
             margin: const EdgeInsets.only(bottom: 12),
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
-              color: Colors.grey[100],
+              color: theme.cardColor,
               borderRadius: BorderRadius.circular(16),
             ),
             child: Row(
@@ -435,7 +438,7 @@ class HomeScreen extends StatelessWidget {
                       Text(
                         t['desc'] as String,
                         style: TextStyle(
-                          color: Colors.grey[700],
+                          color: theme.textTheme.bodySmall?.color,
                           fontSize: 12,
                         ),
                       ),
