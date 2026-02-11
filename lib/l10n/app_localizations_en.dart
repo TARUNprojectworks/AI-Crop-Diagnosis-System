@@ -201,4 +201,208 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tapToSpeak => 'Tap to hear';
+
+  @override
+  String get welcome => 'Welcome';
+
+  @override
+  String get categories => 'Categories';
+
+  @override
+  String get viewAll => 'View All →';
+
+  @override
+  String get quickTips => 'Quick Tips';
+
+  @override
+  String get useGoodLighting => 'Use good lighting';
+
+  @override
+  String get useGoodLightingDesc =>
+      'Take a clear photo in bright light for better detection.';
+
+  @override
+  String get focusOnLeaf => 'Focus on the leaf';
+
+  @override
+  String get focusOnLeafDesc =>
+      'Keep the affected area centered and avoid blur.';
+
+  @override
+  String get cleanCameraLens => 'Clean camera lens';
+
+  @override
+  String get cleanCameraLensDesc => 'Wipe the lens for sharper images.';
+
+  @override
+  String get cereals => 'Cereals';
+
+  @override
+  String get legumes => 'Legumes';
+
+  @override
+  String get fruits => 'Fruits';
+
+  @override
+  String get vegetables => 'Vegetables';
+
+  @override
+  String get selectVegetable => 'Select Vegetable';
+
+  @override
+  String get selectFruit => 'Select Fruit';
+
+  @override
+  String get treatmentSteps => 'Treatment Steps';
+
+  @override
+  String get loadingTreatment => 'Loading treatment recommendations...';
+
+  @override
+  String get noTreatmentAvailable => 'No treatment information available';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
+  String get weatherAlert => 'Weather Alert';
+
+  @override
+  String get avoidSprayingBeforeRain => 'Avoid spraying before rain';
+
+  @override
+  String get organic => 'Organic';
+
+  @override
+  String get chemical => 'Chemical';
+
+  @override
+  String get dosage => 'Dosage';
+
+  @override
+  String get timing => 'Timing';
+
+  @override
+  String get safetyWarnings => 'Safety Warnings:';
+
+  @override
+  String get requiredSafetyEquipment => 'Required safety equipment';
+
+  @override
+  String get noTreatmentStepsAvailable =>
+      'No treatment steps available for this option.';
+
+  @override
+  String get step => 'Step';
+
+  @override
+  String get warningLabel => 'Warning';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get remedies => 'Remedies';
+
+  @override
+  String get history => 'History';
+
+  @override
+  String get account => 'Account';
+
+  @override
+  String get logout => 'Logout';
+
+  @override
+  String get logoutDesc => 'Sign out and return to login screen';
+
+  @override
+  String get voiceAndAccessibility => 'Voice & Accessibility';
+
+  @override
+  String get voiceAssistance => 'Voice assistance';
+
+  @override
+  String get voiceAssistanceDesc =>
+      'Enable/disable voice (read aloud) features';
+
+  @override
+  String get hapticFeedback => 'Haptic feedback';
+
+  @override
+  String get hapticFeedbackDesc => 'Vibrate on interactions (if supported)';
+
+  @override
+  String get syncAndNotifications => 'Sync & Notifications';
+
+  @override
+  String get autoSync => 'Auto sync';
+
+  @override
+  String get autoSyncDesc => 'Upload pending items automatically when online';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get notificationsDesc => 'Enable in-app notifications';
+
+  @override
+  String get data => 'Data';
+
+  @override
+  String get clearLocalHistory => 'Clear local history';
+
+  @override
+  String get clearLocalHistoryDesc =>
+      'Deletes saved submissions and results from this device';
+
+  @override
+  String get clearLocalHistoryConfirm => 'Clear local history?';
+
+  @override
+  String get clearLocalHistoryWarning =>
+      'This will remove all locally saved submissions and results. This action cannot be undone.';
+
+  @override
+  String get clear => 'Clear';
+
+  @override
+  String get localHistoryCleared => 'Local history cleared';
+
+  @override
+  String get uploadedImages => 'Uploaded Images';
+
+  @override
+  String get refresh => 'Refresh';
+
+  @override
+  String get noHistoryYet => 'No history yet';
+
+  @override
+  String get statusSaved => 'Saved (not uploaded)';
+
+  @override
+  String get statusUploading => 'Uploading';
+
+  @override
+  String get uploaded => 'Uploaded';
+
+  @override
+  String get failed => 'Failed';
+
+  @override
+  String get diagnosed => 'Diagnosed';
+
+  @override
+  String get searchCropDisease => 'Search crop / disease...';
+
+  @override
+  String get noRemediesFound => 'No remedies found';
+
+  @override
+  String get symptoms => 'Symptoms';
+
+  @override
+  String get listen => 'Listen';
 }

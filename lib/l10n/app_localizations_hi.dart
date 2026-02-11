@@ -201,4 +201,209 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get tapToSpeak => 'सुनने के लिए टैप करें';
+
+  @override
+  String get welcome => 'स्वागत है';
+
+  @override
+  String get categories => 'श्रेणियाँ';
+
+  @override
+  String get viewAll => 'सभी देखें →';
+
+  @override
+  String get quickTips => 'त्वरित सुझाव';
+
+  @override
+  String get useGoodLighting => 'अच्छी रोशनी का उपयोग करें';
+
+  @override
+  String get useGoodLightingDesc =>
+      'बेहतर पहचान के लिए तेज रोशनी में स्पष्ट फोटो लें।';
+
+  @override
+  String get focusOnLeaf => 'पत्ती पर ध्यान दें';
+
+  @override
+  String get focusOnLeafDesc =>
+      'प्रभावित क्षेत्र को केंद्र में रखें और धुंधलापन से बचें।';
+
+  @override
+  String get cleanCameraLens => 'कैमरा लेंस साफ करें';
+
+  @override
+  String get cleanCameraLensDesc => 'तेज छवियों के लिए लेंस पोंछें।';
+
+  @override
+  String get cereals => 'अनाज';
+
+  @override
+  String get legumes => 'दालें';
+
+  @override
+  String get fruits => 'फल';
+
+  @override
+  String get vegetables => 'सब्जियां';
+
+  @override
+  String get selectVegetable => 'सब्जी चुनें';
+
+  @override
+  String get selectFruit => 'फल चुनें';
+
+  @override
+  String get treatmentSteps => 'उपचार के चरण';
+
+  @override
+  String get loadingTreatment => 'उपचार सिफारिशें लोड हो रही हैं...';
+
+  @override
+  String get noTreatmentAvailable => 'कोई उपचार जानकारी उपलब्ध नहीं है';
+
+  @override
+  String get retry => 'पुनः प्रयास करें';
+
+  @override
+  String get weatherAlert => 'मौसम चेतावनी';
+
+  @override
+  String get avoidSprayingBeforeRain => 'बारिश से पहले छिड़काव से बचें';
+
+  @override
+  String get organic => 'जैविक';
+
+  @override
+  String get chemical => 'रासायनिक';
+
+  @override
+  String get dosage => 'खुराक';
+
+  @override
+  String get timing => 'समय';
+
+  @override
+  String get safetyWarnings => 'सुरक्षा चेतावनियाँ:';
+
+  @override
+  String get requiredSafetyEquipment => 'आवश्यक सुरक्षा उपकरण';
+
+  @override
+  String get noTreatmentStepsAvailable =>
+      'इस विकल्प के लिए कोई उपचार चरण उपलब्ध नहीं हैं।';
+
+  @override
+  String get step => 'चरण';
+
+  @override
+  String get warningLabel => 'चेतावनी';
+
+  @override
+  String get home => 'होम';
+
+  @override
+  String get remedies => 'उपचार';
+
+  @override
+  String get history => 'इतिहास';
+
+  @override
+  String get account => 'खाता';
+
+  @override
+  String get logout => 'लॉगआउट';
+
+  @override
+  String get logoutDesc => 'साइन आउट करें और लॉगिन स्क्रीन पर लौटें';
+
+  @override
+  String get voiceAndAccessibility => 'आवाज और सुलभता';
+
+  @override
+  String get voiceAssistance => 'आवाज सहायता';
+
+  @override
+  String get voiceAssistanceDesc =>
+      'आवाज (पढ़कर सुनाएं) सुविधाएं सक्षम/अक्षम करें';
+
+  @override
+  String get hapticFeedback => 'हैप्टिक फीडबैक';
+
+  @override
+  String get hapticFeedbackDesc => 'इंटरैक्शन पर कंपन (यदि समर्थित हो)';
+
+  @override
+  String get syncAndNotifications => 'सिंक और सूचनाएं';
+
+  @override
+  String get autoSync => 'ऑटो सिंक';
+
+  @override
+  String get autoSyncDesc =>
+      'ऑनलाइन होने पर लंबित आइटम स्वचालित रूप से अपलोड करें';
+
+  @override
+  String get notifications => 'सूचनाएं';
+
+  @override
+  String get notificationsDesc => 'इन-ऐप सूचनाएं सक्षम करें';
+
+  @override
+  String get data => 'डेटा';
+
+  @override
+  String get clearLocalHistory => 'स्थानीय इतिहास साफ करें';
+
+  @override
+  String get clearLocalHistoryDesc =>
+      'इस डिवाइस से सहेजे गए सबमिशन और परिणाम हटाएं';
+
+  @override
+  String get clearLocalHistoryConfirm => 'स्थानीय इतिहास साफ करें?';
+
+  @override
+  String get clearLocalHistoryWarning =>
+      'यह सभी स्थानीय रूप से सहेजे गए सबमिशन और परिणाम हटा देगा। यह क्रिया पूर्ववत नहीं की जा सकती।';
+
+  @override
+  String get clear => 'साफ करें';
+
+  @override
+  String get localHistoryCleared => 'स्थानीय इतिहास साफ किया गया';
+
+  @override
+  String get uploadedImages => 'अपलोड की गई छवियां';
+
+  @override
+  String get refresh => 'ताज़ा करें';
+
+  @override
+  String get noHistoryYet => 'अभी तक कोई इतिहास नहीं';
+
+  @override
+  String get statusSaved => 'सहेजा गया (अपलोड नहीं किया गया)';
+
+  @override
+  String get statusUploading => 'अपलोड हो रहा है';
+
+  @override
+  String get uploaded => 'अपलोड किया गया';
+
+  @override
+  String get failed => 'विफल';
+
+  @override
+  String get diagnosed => 'निदान किया गया';
+
+  @override
+  String get searchCropDisease => 'फसल / रोग खोजें...';
+
+  @override
+  String get noRemediesFound => 'कोई उपचार नहीं मिला';
+
+  @override
+  String get symptoms => 'लक्षण';
+
+  @override
+  String get listen => 'सुनें';
 }

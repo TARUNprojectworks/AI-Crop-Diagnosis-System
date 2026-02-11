@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 class CustomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -13,6 +14,7 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Container(
       height: 80,
@@ -36,7 +38,7 @@ class CustomNavBar extends StatelessWidget {
             context,
             icon: Icons.home_outlined,
             activeIcon: Icons.home,
-            label: 'Home',
+            label: l10n.home,
             index: 0,
           ),
           // 2. Remedies
@@ -44,7 +46,7 @@ class CustomNavBar extends StatelessWidget {
             context,
             icon: Icons.medical_services_outlined,
             activeIcon: Icons.medical_services,
-            label: 'Remedies',
+            label: l10n.remedies,
             index: 1,
           ),
           // 3. Scanner (Camera) - Larger, Center
@@ -54,7 +56,7 @@ class CustomNavBar extends StatelessWidget {
             context,
             icon: Icons.history,
             activeIcon: Icons.history,
-            label: 'History',
+            label: l10n.history,
             index: 3,
           ),
           // 5. Settings
@@ -62,7 +64,7 @@ class CustomNavBar extends StatelessWidget {
             context,
             icon: Icons.settings_outlined,
             activeIcon: Icons.settings,
-            label: 'Settings',
+            label: l10n.settings,
             index: 4,
           ),
         ],

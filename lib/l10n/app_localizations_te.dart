@@ -203,4 +203,211 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get tapToSpeak => 'వినడానికి ట్యాప్ చేయండి';
+
+  @override
+  String get welcome => 'స్వాగతం';
+
+  @override
+  String get categories => 'వర్గాలు';
+
+  @override
+  String get viewAll => 'అన్నీ చూడండి →';
+
+  @override
+  String get quickTips => 'శీఘ్ర చిట్కాలు';
+
+  @override
+  String get useGoodLighting => 'మంచి వెలుతురును ఉపయోగించండి';
+
+  @override
+  String get useGoodLightingDesc =>
+      'మెరుగైన గుర్తింపు కోసం ప్రకాశవంతమైన కాంతిలో స్పష్టమైన ఫోటో తీయండి.';
+
+  @override
+  String get focusOnLeaf => 'ఆకుపై దృష్టి పెట్టండి';
+
+  @override
+  String get focusOnLeafDesc =>
+      'ప్రభావిత ప్రాంతాన్ని మధ్యలో ఉంచండి మరియు అస్పష్టతను నివారించండి.';
+
+  @override
+  String get cleanCameraLens => 'కెమెరా లెన్స్ శుభ్రం చేయండి';
+
+  @override
+  String get cleanCameraLensDesc => 'పదునైన చిత్రాల కోసం లెన్స్ తుడవండి.';
+
+  @override
+  String get cereals => 'తృణధాన్యాలు';
+
+  @override
+  String get legumes => 'పప్పులు';
+
+  @override
+  String get fruits => 'పండ్లు';
+
+  @override
+  String get vegetables => 'కూరగాయలు';
+
+  @override
+  String get selectVegetable => 'కూరగాయను ఎంచుకోండి';
+
+  @override
+  String get selectFruit => 'పండును ఎంచుకోండి';
+
+  @override
+  String get treatmentSteps => 'చికిత్స దశలు';
+
+  @override
+  String get loadingTreatment => 'చికిత్స సిఫార్సులు లోడ్ అవుతున్నాయి...';
+
+  @override
+  String get noTreatmentAvailable => 'చికిత్స సమాచారం అందుబాటులో లేదు';
+
+  @override
+  String get retry => 'మళ్ళీ ప్రయత్నించండి';
+
+  @override
+  String get weatherAlert => 'వాతావరణ హెచ్చరిక';
+
+  @override
+  String get avoidSprayingBeforeRain =>
+      'వర్షానికి ముందు పిచికారీ చేయడం మానుకోండి';
+
+  @override
+  String get organic => 'సేంద్రీయ';
+
+  @override
+  String get chemical => 'రసాయన';
+
+  @override
+  String get dosage => 'మోతాదు';
+
+  @override
+  String get timing => 'సమయం';
+
+  @override
+  String get safetyWarnings => 'భద్రతా హెచ్చరికలు:';
+
+  @override
+  String get requiredSafetyEquipment => 'అవసరమైన భద్రతా పరికరాలు';
+
+  @override
+  String get noTreatmentStepsAvailable =>
+      'ఈ ఎంపికకు చికిత్స దశలు అందుబాటులో లేవు.';
+
+  @override
+  String get step => 'దశ';
+
+  @override
+  String get warningLabel => 'హెచ్చరిక';
+
+  @override
+  String get home => 'హోమ్';
+
+  @override
+  String get remedies => 'నివారణలు';
+
+  @override
+  String get history => 'చరిత్ర';
+
+  @override
+  String get account => 'ఖాతా';
+
+  @override
+  String get logout => 'లాగ్అవుట్';
+
+  @override
+  String get logoutDesc => 'సైన్ అవుట్ చేసి లాగిన్ స్క్రీన్‌కు తిరిగి వెళ్ళండి';
+
+  @override
+  String get voiceAndAccessibility => 'వాయిస్ & యాక్సెసిబిలిటీ';
+
+  @override
+  String get voiceAssistance => 'వాయిస్ సహాయం';
+
+  @override
+  String get voiceAssistanceDesc =>
+      'వాయిస్ (బిగ్గరగా చదవడం) ఫీచర్లను ఎనేబుల్/డిసేబుల్ చేయండి';
+
+  @override
+  String get hapticFeedback => 'హాప్టిక్ ఫీడ్‌బ్యాక్';
+
+  @override
+  String get hapticFeedbackDesc =>
+      'ఇంటరాక్షన్‌లపై వైబ్రేట్ చేయండి (సపోర్ట్ ఉంటే)';
+
+  @override
+  String get syncAndNotifications => 'సింక్ & నోటిఫికేషన్లు';
+
+  @override
+  String get autoSync => 'ఆటో సింక్';
+
+  @override
+  String get autoSyncDesc =>
+      'ఆన్‌లైన్‌లో ఉన్నప్పుడు పెండింగ్ ఐటమ్‌లను ఆటోమేటిక్‌గా అప్‌లోడ్ చేయండి';
+
+  @override
+  String get notifications => 'నోటిఫికేషన్లు';
+
+  @override
+  String get notificationsDesc => 'ఇన్-యాప్ నోటిఫికేషన్లను ఎనేబుల్ చేయండి';
+
+  @override
+  String get data => 'డేటా';
+
+  @override
+  String get clearLocalHistory => 'స్థానిక చరిత్రను క్లియర్ చేయండి';
+
+  @override
+  String get clearLocalHistoryDesc =>
+      'ఈ పరికరం నుండి సేవ్ చేసిన సబ్‌మిషన్‌లు మరియు ఫలితాలను తొలగించండి';
+
+  @override
+  String get clearLocalHistoryConfirm => 'స్థానిక చరిత్రను క్లియర్ చేయాలా?';
+
+  @override
+  String get clearLocalHistoryWarning =>
+      'ఇది స్థానికంగా సేవ్ చేసిన సబ్‌మిషన్‌లు మరియు ఫలితాలన్నింటినీ తొలగిస్తుంది. ఈ చర్యను తిరిగి చేయలేరు.';
+
+  @override
+  String get clear => 'క్లియర్';
+
+  @override
+  String get localHistoryCleared => 'స్థానిక చరిత్ర క్లియర్ చేయబడింది';
+
+  @override
+  String get uploadedImages => 'అప్‌లోడ్ చేసిన చిత్రాలు';
+
+  @override
+  String get refresh => 'రిఫ్రెష్';
+
+  @override
+  String get noHistoryYet => 'ఇంకా చరిత్ర లేదు';
+
+  @override
+  String get statusSaved => 'సేవ్ చేయబడింది (అప్‌లోడ్ చేయబడలేదు)';
+
+  @override
+  String get statusUploading => 'అప్‌లోడ్ అవుతోంది';
+
+  @override
+  String get uploaded => 'అప్‌లోడ్ చేయబడింది';
+
+  @override
+  String get failed => 'విఫలమైంది';
+
+  @override
+  String get diagnosed => 'నిర్ధారణ చేయబడింది';
+
+  @override
+  String get searchCropDisease => 'పంట / వ్యాధిని శోధించండి...';
+
+  @override
+  String get noRemediesFound => 'నివారణలు కనుగొనబడలేదు';
+
+  @override
+  String get symptoms => 'లక్షణాలు';
+
+  @override
+  String get listen => 'వినండి';
 }

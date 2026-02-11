@@ -56,7 +56,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final prefs = Provider.of<PreferencesService>(context, listen: false);
     final syncService = Provider.of<SyncService>(context, listen: false);
     final storageService = Provider.of<StorageService>(context, listen: false);
-    final submissionProvider = Provider.of<SubmissionProvider>(context, listen: false);
+    final submissionProvider =
+        Provider.of<SubmissionProvider>(context, listen: false);
     final authService = Provider.of<AuthService>(context, listen: false);
     final speechService = Provider.of<SpeechService>(context, listen: false);
     final ttsService = Provider.of<TtsService>(context, listen: false);
@@ -68,23 +69,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          _buildSectionTitle('Account'),
+          _buildSectionTitle(l10n.account),
           ListTile(
             leading: const Icon(Icons.logout),
-            title: const Text('Logout'),
-            subtitle: const Text('Sign out and return to login screen'),
+            title: Text(l10n.logout),
+            subtitle: Text(l10n.logoutDesc),
             onTap: () async {
               await authService.logout();
               if (!context.mounted) return;
-              Navigator.pushNamedAndRemoveUntil(context, '/login', (r) => false);
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/login', (r) => false);
             },
           ),
           const Divider(height: 40),
-
           _buildSectionTitle(l10n.language),
           _buildLanguageSelector(context, languageProvider),
           const Divider(height: 40),
-
           _buildSectionTitle(l10n.theme),
           SwitchListTile(
             title:
@@ -95,11 +95,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onChanged: (_) => themeProvider.toggleTheme(),
           ),
           const Divider(height: 40),
-
-          _buildSectionTitle('Voice & Accessibility'),
+          _buildSectionTitle(l10n.voiceAndAccessibility),
           SwitchListTile(
-            title: const Text('Voice assistance'),
-            subtitle: const Text('Enable/disable voice (read aloud) features'),
+            title: Text(l10n.voiceAssistance),
+            subtitle: Text(l10n.voiceAssistanceDesc),
             secondary: const Icon(Icons.volume_up),
             value: _voiceEnabled,
             onChanged: (value) async {
@@ -112,8 +111,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           SwitchListTile(
-            title: const Text('Haptic feedback'),
-            subtitle: const Text('Vibrate on interactions (if supported)'),
+            title: Text(l10n.hapticFeedback),
+            subtitle: Text(l10n.hapticFeedbackDesc),
             secondary: const Icon(Icons.vibration),
             value: _hapticsEnabled,
             onChanged: (value) async {
@@ -122,11 +121,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           const Divider(height: 40),
-
-          _buildSectionTitle('Sync & Notifications'),
+          _buildSectionTitle(l10n.syncAndNotifications),
           SwitchListTile(
-            title: const Text('Auto sync'),
-            subtitle: const Text('Upload pending items automatically when online'),
+            title: Text(l10n.autoSync),
+            subtitle: Text(l10n.autoSyncDesc),
             secondary: const Icon(Icons.sync),
             value: _autoSyncEnabled,
             onChanged: (value) async {
@@ -140,8 +138,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           SwitchListTile(
-            title: const Text('Notifications'),
-            subtitle: const Text('Enable in-app notifications'),
+            title: Text(l10n.notifications),
+            subtitle: Text(l10n.notificationsDesc),
             secondary: const Icon(Icons.notifications_active_outlined),
             value: _notificationsEnabled,
             onChanged: (value) async {
@@ -150,32 +148,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           const Divider(height: 40),
-
           _buildSectionTitle(l10n.fontSize),
           _buildFontSizeSelector(context, fontSizeProvider, l10n),
           const Divider(height: 40),
-
-          _buildSectionTitle('Data'),
+          _buildSectionTitle(l10n.data),
           ListTile(
             leading: const Icon(Icons.delete_outline),
-            title: const Text('Clear local history'),
-            subtitle: const Text('Deletes saved submissions and results from this device'),
+            title: Text(l10n.clearLocalHistory),
+            subtitle: Text(l10n.clearLocalHistoryDesc),
             onTap: () async {
               final ok = await showDialog<bool>(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: const Text('Clear local history?'),
-                  content: const Text(
-                    'This will remove all locally saved submissions and results. This action cannot be undone.',
+                  title: Text(l10n.clearLocalHistoryConfirm),
+                  content: Text(
+                    l10n.clearLocalHistoryWarning,
                   ),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context, false),
-                      child: const Text('Cancel'),
+                      child: Text(l10n.cancel),
                     ),
                     ElevatedButton(
                       onPressed: () => Navigator.pop(context, true),
-                      child: const Text('Clear'),
+                      child: Text(l10n.clear),
                     ),
                   ],
                 ),
@@ -186,12 +182,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
               await submissionProvider.loadSubmissions();
               if (!context.mounted) return;
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Local history cleared')),
+                SnackBar(content: Text(l10n.localHistoryCleared)),
               );
             },
           ),
           const Divider(height: 40),
-
           _buildSectionTitle(l10n.about),
           ListTile(
             title: Text(l10n.about),

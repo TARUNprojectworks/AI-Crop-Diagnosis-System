@@ -205,4 +205,209 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get tapToSpeak => 'கேட்க தட்டவும்';
+
+  @override
+  String get welcome => 'வரவேற்கிறோம்';
+
+  @override
+  String get categories => 'வகைகள்';
+
+  @override
+  String get viewAll => 'அனைத்தையும் காண →';
+
+  @override
+  String get quickTips => 'விரைவான குறிப்புகள்';
+
+  @override
+  String get useGoodLighting => 'நல்ல ஒளியைப் பயன்படுத்தவும்';
+
+  @override
+  String get useGoodLightingDesc =>
+      'சிறந்த கண்டறிதலுக்கு பிரகாசமான ஒளியில் தெளிவான புகைப்படம் எடுக்கவும்.';
+
+  @override
+  String get focusOnLeaf => 'இலையில் கவனம் செலுத்தவும்';
+
+  @override
+  String get focusOnLeafDesc =>
+      'பாதிக்கப்பட்ட பகுதியை மையத்தில் வைத்து மங்கலைத் தவிர்க்கவும்.';
+
+  @override
+  String get cleanCameraLens => 'கேமரா லென்ஸை சுத்தம் செய்யவும்';
+
+  @override
+  String get cleanCameraLensDesc => 'கூர்மையான படங்களுக்கு லென்ஸை துடைக்கவும்.';
+
+  @override
+  String get cereals => 'தானியங்கள்';
+
+  @override
+  String get legumes => 'பருப்புகள்';
+
+  @override
+  String get fruits => 'பழங்கள்';
+
+  @override
+  String get vegetables => 'காய்கறிகள்';
+
+  @override
+  String get selectVegetable => 'காய்கறியைத் தேர்ந்தெடுக்கவும்';
+
+  @override
+  String get selectFruit => 'பழத்தைத் தேர்ந்தெடுக்கவும்';
+
+  @override
+  String get treatmentSteps => 'சிகிச்சை படிகள்';
+
+  @override
+  String get loadingTreatment => 'சிகிச்சை பரிந்துரைகள் ஏற்றப்படுகின்றன...';
+
+  @override
+  String get noTreatmentAvailable => 'சிகிச்சை தகவல் கிடைக்கவில்லை';
+
+  @override
+  String get retry => 'மீண்டும் முயற்சிக்கவும்';
+
+  @override
+  String get weatherAlert => 'வானிலை எச்சரிக்கை';
+
+  @override
+  String get avoidSprayingBeforeRain => 'மழைக்கு முன் தெளிப்பதைத் தவிர்க்கவும்';
+
+  @override
+  String get organic => 'இயற்கை';
+
+  @override
+  String get chemical => 'ரசாயன';
+
+  @override
+  String get dosage => 'அளவு';
+
+  @override
+  String get timing => 'நேரம்';
+
+  @override
+  String get safetyWarnings => 'பாதுகாப்பு எச்சரிக்கைகள்:';
+
+  @override
+  String get requiredSafetyEquipment => 'தேவையான பாதுகாப்பு உபகரணங்கள்';
+
+  @override
+  String get noTreatmentStepsAvailable =>
+      'இந்த விருப்பத்திற்கு சிகிச்சை படிகள் கிடைக்கவில்லை.';
+
+  @override
+  String get step => 'படி';
+
+  @override
+  String get warningLabel => 'எச்சரிக்கை';
+
+  @override
+  String get home => 'முகப்பு';
+
+  @override
+  String get remedies => 'தீர்வுகள்';
+
+  @override
+  String get history => 'வரலாறு';
+
+  @override
+  String get account => 'கணக்கு';
+
+  @override
+  String get logout => 'வெளியேறு';
+
+  @override
+  String get logoutDesc => 'வெளியேறி உள்நுழைவு திரைக்குத் திரும்பு';
+
+  @override
+  String get voiceAndAccessibility => 'குரல் & அணுகல்தன்மை';
+
+  @override
+  String get voiceAssistance => 'குரல் உதவி';
+
+  @override
+  String get voiceAssistanceDesc =>
+      'குரல் (சத்தமாக படிக்க) அம்சங்களை இயக்கு/முடக்கு';
+
+  @override
+  String get hapticFeedback => 'ஹாப்டிக் பின்னூட்டம்';
+
+  @override
+  String get hapticFeedbackDesc => 'தொடர்புகளில் அதிர்வு (ஆதரிக்கப்பட்டால்)';
+
+  @override
+  String get syncAndNotifications => 'ஒத்திசைவு & அறிவிப்புகள்';
+
+  @override
+  String get autoSync => 'தானியங்கி ஒத்திசைவு';
+
+  @override
+  String get autoSyncDesc =>
+      'ஆன்லைனில் இருக்கும்போது நிலுவையிலுள்ள உருப்படிகளை தானாக பதிவேற்றவும்';
+
+  @override
+  String get notifications => 'அறிவிப்புகள்';
+
+  @override
+  String get notificationsDesc => 'உள்-செயலி அறிவிப்புகளை இயக்கு';
+
+  @override
+  String get data => 'தரவு';
+
+  @override
+  String get clearLocalHistory => 'உள்ளூர் வரலாற்றை அழி';
+
+  @override
+  String get clearLocalHistoryDesc =>
+      'இந்தச் சாதனத்திலிருந்து சேமிக்கப்பட்ட சமர்ப்பிப்புகள் மற்றும் முடிவுகளை நீக்கு';
+
+  @override
+  String get clearLocalHistoryConfirm => 'உள்ளூர் வரலாற்றை அழிக்கவா?';
+
+  @override
+  String get clearLocalHistoryWarning =>
+      'இது உள்ளூரில் சேமிக்கப்பட்ட அனைத்து சமர்ப்பிப்புகள் மற்றும் முடிவுகளையும் நீக்கும். இந்தச் செயலை மாற்ற முடியாது.';
+
+  @override
+  String get clear => 'அழி';
+
+  @override
+  String get localHistoryCleared => 'உள்ளூர் வரலாறு அழிக்கப்பட்டது';
+
+  @override
+  String get uploadedImages => 'பதிவேற்றிய படங்கள்';
+
+  @override
+  String get refresh => 'புதுப்பி';
+
+  @override
+  String get noHistoryYet => 'இதுவரை வரலாறு இல்லை';
+
+  @override
+  String get statusSaved => 'சேமிக்கப்பட்டது (பதிவேற்றப்படவில்லை)';
+
+  @override
+  String get statusUploading => 'பதிவேற்றுகிறது';
+
+  @override
+  String get uploaded => 'பதிவேற்றப்பட்டது';
+
+  @override
+  String get failed => 'தோல்வி';
+
+  @override
+  String get diagnosed => 'கண்டறியப்பட்டது';
+
+  @override
+  String get searchCropDisease => 'பயிர் / நோயைத் தேடு...';
+
+  @override
+  String get noRemediesFound => 'தீர்வுகள் எதுவும் கிடைக்கவில்லை';
+
+  @override
+  String get symptoms => 'அறிகுறிகள்';
+
+  @override
+  String get listen => 'கேளு';
 }
