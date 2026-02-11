@@ -5,6 +5,7 @@ import '../services/sync_service.dart';
 import '../providers/language_provider.dart';
 import '../widgets/voice_button.dart';
 import '../utils/constants.dart';
+import '../l10n/app_localizations.dart';
 
 class TreatmentScreen extends StatefulWidget {
   final String diseaseId;
@@ -56,10 +57,11 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
   @override
   Widget build(BuildContext context) {
     final languageProvider = Provider.of<LanguageProvider>(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Treatment Steps'),
+        title: Text(l10n.treatmentSteps),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
@@ -76,29 +78,29 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
         ],
       ),
       body: _isLoading
-          ? _buildLoading()
+          ? _buildLoading(l10n)
           : _error != null
-              ? _buildError()
+              ? _buildError(l10n)
               : _treatment != null
-                  ? _buildTreatment(languageProvider)
-                  : _buildNoTreatment(),
+                  ? _buildTreatment(languageProvider, l10n)
+                  : _buildNoTreatment(l10n),
     );
   }
 
-  Widget _buildLoading() {
-    return const Center(
+  Widget _buildLoading(AppLocalizations l10n) {
+    return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CircularProgressIndicator(),
-          SizedBox(height: 24),
-          Text('Loading treatment recommendations...'),
+          const CircularProgressIndicator(),
+          const SizedBox(height: 24),
+          Text(l10n.loadingTreatment),
         ],
       ),
     );
   }
 
-  Widget _buildError() {
+  Widget _buildError(AppLocalizations l10n) {
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -108,14 +110,14 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
             const Icon(Icons.error_outline, size: 64, color: Colors.red),
             const SizedBox(height: 16),
             Text(
-              'Error: $_error',
+              '${l10n.error}: $_error',
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
             ElevatedButton.icon(
               onPressed: _fetchTreatment,
               icon: const Icon(Icons.refresh),
-              label: const Text('Retry'),
+              label: Text(l10n.retry),
             ),
           ],
         ),
@@ -123,13 +125,14 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
     );
   }
 
-  Widget _buildNoTreatment() {
-    return const Center(
-      child: Text('No treatment information available'),
+  Widget _buildNoTreatment(AppLocalizations l10n) {
+    return Center(
+      child: Text(l10n.noTreatmentAvailable),
     );
   }
 
-  Widget _buildTreatment(LanguageProvider languageProvider) {
+  Widget _buildTreatment(
+      LanguageProvider languageProvider, AppLocalizations l10n) {
     final treatment = _treatment!;
     final currentSteps =
         _showOrganic ? treatment.organicSteps : treatment.chemicalSteps;
@@ -168,7 +171,7 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
 
           // Weather Warning
           if (treatment.rainWarning)
-            _buildWeatherWarning(treatment, languageProvider),
+            _buildWeatherWarning(treatment, languageProvider, l10n),
 
           // Treatment Type Toggle
           Padding(
@@ -177,7 +180,7 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
               children: [
                 Expanded(
                   child: _buildToggleButton(
-                    label: '🌱 Organic',
+                    label: '🌱 ${l10n.organic}',
                     isSelected: _showOrganic,
                     onTap: () => setState(() => _showOrganic = true),
                   ),
@@ -185,7 +188,7 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
                 const SizedBox(width: 12),
                 Expanded(
                   child: _buildToggleButton(
-                    label: '⚗️ Chemical',
+                    label: '⚗️ ${l10n.chemical}',
                     isSelected: !_showOrganic,
                     onTap: () => setState(() => _showOrganic = false),
                   ),
@@ -196,10 +199,10 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
 
           // Treatment Steps
           if (currentSteps.isEmpty)
-            const Padding(
-              padding: EdgeInsets.all(24.0),
+            Padding(
+              padding: const EdgeInsets.all(24.0),
               child: Text(
-                'No treatment steps available for this option.',
+                l10n.noTreatmentStepsAvailable,
                 textAlign: TextAlign.center,
               ),
             )
@@ -208,7 +211,7 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: currentSteps
-                    .map((step) => _buildStepCard(step, languageProvider))
+                    .map((step) => _buildStepCard(step, languageProvider, l10n))
                     .toList(),
               ),
             ),
@@ -219,8 +222,8 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
     );
   }
 
-  Widget _buildWeatherWarning(
-      Treatment treatment, LanguageProvider languageProvider) {
+  Widget _buildWeatherWarning(Treatment treatment,
+      LanguageProvider languageProvider, AppLocalizations l10n) {
     return Container(
       margin: const EdgeInsets.all(16.0),
       padding: const EdgeInsets.all(16.0),
@@ -237,16 +240,16 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  '🌧️ Weather Alert',
-                  style: TextStyle(
+                Text(
+                  '🌧️ ${l10n.weatherAlert}',
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  treatment.weatherCondition ?? 'Avoid spraying before rain',
+                  treatment.weatherCondition ?? l10n.avoidSprayingBeforeRain,
                   style: const TextStyle(fontSize: 14),
                 ),
               ],
@@ -288,7 +291,8 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
     );
   }
 
-  Widget _buildStepCard(TreatmentStep step, LanguageProvider languageProvider) {
+  Widget _buildStepCard(TreatmentStep step, LanguageProvider languageProvider,
+      AppLocalizations l10n) {
     return Card(
       margin: const EdgeInsets.only(bottom: 16),
       elevation: 3,
@@ -375,7 +379,7 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
                   const Icon(Icons.medication, size: 20, color: Colors.blue),
                   const SizedBox(width: 8),
                   Text(
-                    'Dosage: ${step.dosage}',
+                    '${l10n.dosage}: ${step.dosage}',
                     style: const TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 14,
@@ -393,7 +397,7 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
                   const Icon(Icons.access_time, size: 20, color: Colors.green),
                   const SizedBox(width: 8),
                   Text(
-                    'Timing: ${step.timing}',
+                    '${l10n.timing}: ${step.timing}',
                     style: const TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 14,
@@ -449,13 +453,13 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Row(
+                    Row(
                       children: [
-                        Icon(Icons.warning, color: Colors.red, size: 20),
-                        SizedBox(width: 8),
+                        const Icon(Icons.warning, color: Colors.red, size: 20),
+                        const SizedBox(width: 8),
                         Text(
-                          'Safety Warnings:',
-                          style: TextStyle(
+                          l10n.safetyWarnings,
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.red,
                           ),
@@ -478,7 +482,7 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
             // Voice Button
             const SizedBox(height: 12),
             VoiceButton(
-              text: _buildVoiceText(step),
+              text: _buildVoiceText(step, l10n),
               languageCode: languageProvider.currentLocale.languageCode,
             ),
           ],
@@ -487,23 +491,25 @@ class _TreatmentScreenState extends State<TreatmentScreen> {
     );
   }
 
-  String _buildVoiceText(TreatmentStep step) {
-    String text = 'Step ${step.stepNumber}: ${step.title}. ${step.description}';
+  String _buildVoiceText(TreatmentStep step, AppLocalizations l10n) {
+    String text =
+        '${l10n.step} ${step.stepNumber}: ${step.title}. ${step.description}';
 
     if (step.dosage != null) {
-      text += ' Dosage: ${step.dosage}.';
+      text += ' ${l10n.dosage}: ${step.dosage}.';
     }
 
     if (step.timing != null) {
-      text += ' Timing: ${step.timing}.';
+      text += ' ${l10n.timing}: ${step.timing}.';
     }
 
     if (step.ppeRequired.isNotEmpty) {
-      text += ' Required safety equipment: ${step.ppeRequired.join(", ")}.';
+      text +=
+          ' ${l10n.requiredSafetyEquipment}: ${step.ppeRequired.join(", ")}.';
     }
 
     if (step.safetyWarnings.isNotEmpty) {
-      text += ' Warning: ${step.safetyWarnings.join(". ")}.';
+      text += ' ${l10n.warningLabel}: ${step.safetyWarnings.join(". ")}.';
     }
 
     return text;

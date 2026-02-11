@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../data/crop_data.dart';
+import '../l10n/app_localizations.dart';
 import '../models/crop_model.dart';
 import '../providers/language_provider.dart';
 import '../services/tts_service.dart';
@@ -21,6 +22,7 @@ class _RemediesScreenState extends State<RemediesScreen> {
     final theme = Theme.of(context);
     final languageProvider = Provider.of<LanguageProvider>(context);
     final currentLang = languageProvider.currentLocale.languageCode;
+    final l10n = AppLocalizations.of(context)!;
 
     // Collect all diseases from all crops
     final List<DiseaseInfo> allDiseases = [];
@@ -47,7 +49,7 @@ class _RemediesScreenState extends State<RemediesScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Remedies'),
+        title: Text(l10n.remedies),
       ),
       body: Column(
         children: [
@@ -55,7 +57,7 @@ class _RemediesScreenState extends State<RemediesScreen> {
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
             child: TextField(
               decoration: InputDecoration(
-                hintText: 'Search crop / disease...',
+                hintText: l10n.searchCropDisease,
                 prefixIcon: const Icon(Icons.search),
                 filled: true,
                 fillColor: Colors.grey[100],
@@ -69,7 +71,7 @@ class _RemediesScreenState extends State<RemediesScreen> {
           ),
           Expanded(
             child: filtered.isEmpty
-                ? const Center(child: Text('No remedies found'))
+                ? Center(child: Text(l10n.noRemediesFound))
                 : ListView.builder(
                     padding: const EdgeInsets.all(16),
                     itemCount: filtered.length,
@@ -134,6 +136,7 @@ class _DiseaseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final ttsService = Provider.of<TtsService>(context, listen: false);
+    final l10n = AppLocalizations.of(context)!;
     final emoji = _cropEmoji(diseaseInfo.cropId);
 
     return Card(
@@ -164,11 +167,11 @@ class _DiseaseCard extends StatelessWidget {
           style: theme.textTheme.bodySmall,
         ),
         trailing: IconButton(
-          tooltip: 'Listen',
+          tooltip: l10n.listen,
           icon: Icon(Icons.volume_up, color: accent),
           onPressed: () {
             final text =
-                '${diseaseInfo.disease.name}. ${diseaseInfo.disease.description}. Remedies: ${diseaseInfo.disease.remedies.join('. ')}';
+                '${diseaseInfo.disease.name}. ${diseaseInfo.disease.description}. ${l10n.remedies}: ${diseaseInfo.disease.remedies.join('. ')}';
             ttsService.speak(text, languageCode: languageCode);
           },
         ),
@@ -210,13 +213,13 @@ class _DiseaseCard extends StatelessWidget {
               ],
             ),
           ),
-          _sectionTitle('Symptoms', accent),
+          _sectionTitle(l10n.symptoms, accent),
           const SizedBox(height: 8),
           ...diseaseInfo.disease.symptoms.map(
             (s) => _bullet(theme, s, accent),
           ),
           const SizedBox(height: 14),
-          _sectionTitle('Remedies', accent),
+          _sectionTitle(l10n.remedies, accent),
           const SizedBox(height: 8),
           ...diseaseInfo.disease.remedies.map(
             (r) => _check(theme, r, accent),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n/app_localizations.dart';
 import '../models/submission.dart';
 import '../providers/submission_provider.dart';
 import '../utils/constants.dart';
@@ -15,18 +16,18 @@ class HistoryScreen extends StatelessWidget {
     return '${dt.year}-${two(dt.month)}-${two(dt.day)} ${two(dt.hour)}:${two(dt.minute)}';
   }
 
-  String _statusLabel(SubmissionStatus status) {
+  String _statusLabel(SubmissionStatus status, AppLocalizations l10n) {
     switch (status) {
       case SubmissionStatus.saved:
-        return 'Saved (not uploaded)';
+        return l10n.statusSaved;
       case SubmissionStatus.uploading:
-        return 'Uploading';
+        return l10n.statusUploading;
       case SubmissionStatus.submitted:
-        return 'Uploaded';
+        return l10n.uploaded;
       case SubmissionStatus.failed:
-        return 'Failed';
+        return l10n.failed;
       case SubmissionStatus.diagnosed:
-        return 'Diagnosed';
+        return l10n.diagnosed;
     }
   }
 
@@ -67,10 +68,11 @@ class HistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<SubmissionProvider>(context);
     final submissions = provider.submissions;
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('History'),
+        title: Text(l10n.history),
         actions: [
           IconButton(
             onPressed: () {
@@ -80,21 +82,22 @@ class HistoryScreen extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.photo_library_outlined),
-            tooltip: 'Uploaded Images',
+            tooltip: l10n.uploadedImages,
           ),
           IconButton(
-            onPressed: provider.isLoading ? null : () => provider.loadSubmissions(),
+            onPressed:
+                provider.isLoading ? null : () => provider.loadSubmissions(),
             icon: const Icon(Icons.refresh),
-            tooltip: 'Refresh',
+            tooltip: l10n.refresh,
           ),
         ],
       ),
       body: provider.isLoading
           ? const Center(child: CircularProgressIndicator())
           : provider.error != null
-              ? Center(child: Text('Error: ${provider.error}'))
+              ? Center(child: Text('${l10n.error}: ${provider.error}'))
               : submissions.isEmpty
-                  ? const Center(child: Text('No history yet'))
+                  ? Center(child: Text(l10n.noHistoryYet))
                   : ListView.separated(
                       padding: const EdgeInsets.all(16),
                       itemCount: submissions.length,
@@ -123,7 +126,8 @@ class HistoryScreen extends StatelessWidget {
                                   const SizedBox(width: 12),
                                   Expanded(
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           _formatDateTime(s.createdAt),
@@ -133,7 +137,7 @@ class HistoryScreen extends StatelessWidget {
                                         ),
                                         const SizedBox(height: 4),
                                         Text(
-                                          _statusLabel(s.status),
+                                          _statusLabel(s.status, l10n),
                                           style: TextStyle(
                                             color: statusColor,
                                             fontWeight: FontWeight.w600,

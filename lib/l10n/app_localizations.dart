@@ -473,6 +473,402 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tap to hear'**
   String get tapToSpeak;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
+
+  /// No description provided for @categories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categories;
+
+  /// No description provided for @viewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'View All →'**
+  String get viewAll;
+
+  /// No description provided for @quickTips.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Tips'**
+  String get quickTips;
+
+  /// No description provided for @useGoodLighting.
+  ///
+  /// In en, this message translates to:
+  /// **'Use good lighting'**
+  String get useGoodLighting;
+
+  /// No description provided for @useGoodLightingDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a clear photo in bright light for better detection.'**
+  String get useGoodLightingDesc;
+
+  /// No description provided for @focusOnLeaf.
+  ///
+  /// In en, this message translates to:
+  /// **'Focus on the leaf'**
+  String get focusOnLeaf;
+
+  /// No description provided for @focusOnLeafDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep the affected area centered and avoid blur.'**
+  String get focusOnLeafDesc;
+
+  /// No description provided for @cleanCameraLens.
+  ///
+  /// In en, this message translates to:
+  /// **'Clean camera lens'**
+  String get cleanCameraLens;
+
+  /// No description provided for @cleanCameraLensDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Wipe the lens for sharper images.'**
+  String get cleanCameraLensDesc;
+
+  /// No description provided for @cereals.
+  ///
+  /// In en, this message translates to:
+  /// **'Cereals'**
+  String get cereals;
+
+  /// No description provided for @legumes.
+  ///
+  /// In en, this message translates to:
+  /// **'Legumes'**
+  String get legumes;
+
+  /// No description provided for @fruits.
+  ///
+  /// In en, this message translates to:
+  /// **'Fruits'**
+  String get fruits;
+
+  /// No description provided for @vegetables.
+  ///
+  /// In en, this message translates to:
+  /// **'Vegetables'**
+  String get vegetables;
+
+  /// No description provided for @selectVegetable.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Vegetable'**
+  String get selectVegetable;
+
+  /// No description provided for @selectFruit.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Fruit'**
+  String get selectFruit;
+
+  /// No description provided for @treatmentSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'Treatment Steps'**
+  String get treatmentSteps;
+
+  /// No description provided for @loadingTreatment.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading treatment recommendations...'**
+  String get loadingTreatment;
+
+  /// No description provided for @noTreatmentAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No treatment information available'**
+  String get noTreatmentAvailable;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// No description provided for @weatherAlert.
+  ///
+  /// In en, this message translates to:
+  /// **'Weather Alert'**
+  String get weatherAlert;
+
+  /// No description provided for @avoidSprayingBeforeRain.
+  ///
+  /// In en, this message translates to:
+  /// **'Avoid spraying before rain'**
+  String get avoidSprayingBeforeRain;
+
+  /// No description provided for @organic.
+  ///
+  /// In en, this message translates to:
+  /// **'Organic'**
+  String get organic;
+
+  /// No description provided for @chemical.
+  ///
+  /// In en, this message translates to:
+  /// **'Chemical'**
+  String get chemical;
+
+  /// No description provided for @dosage.
+  ///
+  /// In en, this message translates to:
+  /// **'Dosage'**
+  String get dosage;
+
+  /// No description provided for @timing.
+  ///
+  /// In en, this message translates to:
+  /// **'Timing'**
+  String get timing;
+
+  /// No description provided for @safetyWarnings.
+  ///
+  /// In en, this message translates to:
+  /// **'Safety Warnings:'**
+  String get safetyWarnings;
+
+  /// No description provided for @requiredSafetyEquipment.
+  ///
+  /// In en, this message translates to:
+  /// **'Required safety equipment'**
+  String get requiredSafetyEquipment;
+
+  /// No description provided for @noTreatmentStepsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No treatment steps available for this option.'**
+  String get noTreatmentStepsAvailable;
+
+  /// No description provided for @step.
+  ///
+  /// In en, this message translates to:
+  /// **'Step'**
+  String get step;
+
+  /// No description provided for @warningLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Warning'**
+  String get warningLabel;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @remedies.
+  ///
+  /// In en, this message translates to:
+  /// **'Remedies'**
+  String get remedies;
+
+  /// No description provided for @history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get history;
+
+  /// No description provided for @account.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get account;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
+
+  /// No description provided for @logoutDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out and return to login screen'**
+  String get logoutDesc;
+
+  /// No description provided for @voiceAndAccessibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice & Accessibility'**
+  String get voiceAndAccessibility;
+
+  /// No description provided for @voiceAssistance.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice assistance'**
+  String get voiceAssistance;
+
+  /// No description provided for @voiceAssistanceDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable/disable voice (read aloud) features'**
+  String get voiceAssistanceDesc;
+
+  /// No description provided for @hapticFeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Haptic feedback'**
+  String get hapticFeedback;
+
+  /// No description provided for @hapticFeedbackDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Vibrate on interactions (if supported)'**
+  String get hapticFeedbackDesc;
+
+  /// No description provided for @syncAndNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync & Notifications'**
+  String get syncAndNotifications;
+
+  /// No description provided for @autoSync.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto sync'**
+  String get autoSync;
+
+  /// No description provided for @autoSyncDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload pending items automatically when online'**
+  String get autoSyncDesc;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// No description provided for @notificationsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable in-app notifications'**
+  String get notificationsDesc;
+
+  /// No description provided for @data.
+  ///
+  /// In en, this message translates to:
+  /// **'Data'**
+  String get data;
+
+  /// No description provided for @clearLocalHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear local history'**
+  String get clearLocalHistory;
+
+  /// No description provided for @clearLocalHistoryDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Deletes saved submissions and results from this device'**
+  String get clearLocalHistoryDesc;
+
+  /// No description provided for @clearLocalHistoryConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear local history?'**
+  String get clearLocalHistoryConfirm;
+
+  /// No description provided for @clearLocalHistoryWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'This will remove all locally saved submissions and results. This action cannot be undone.'**
+  String get clearLocalHistoryWarning;
+
+  /// No description provided for @clear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clear;
+
+  /// No description provided for @localHistoryCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'Local history cleared'**
+  String get localHistoryCleared;
+
+  /// No description provided for @uploadedImages.
+  ///
+  /// In en, this message translates to:
+  /// **'Uploaded Images'**
+  String get uploadedImages;
+
+  /// No description provided for @refresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
+  String get refresh;
+
+  /// No description provided for @noHistoryYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No history yet'**
+  String get noHistoryYet;
+
+  /// No description provided for @statusSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved (not uploaded)'**
+  String get statusSaved;
+
+  /// No description provided for @statusUploading.
+  ///
+  /// In en, this message translates to:
+  /// **'Uploading'**
+  String get statusUploading;
+
+  /// No description provided for @uploaded.
+  ///
+  /// In en, this message translates to:
+  /// **'Uploaded'**
+  String get uploaded;
+
+  /// No description provided for @failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed'**
+  String get failed;
+
+  /// No description provided for @diagnosed.
+  ///
+  /// In en, this message translates to:
+  /// **'Diagnosed'**
+  String get diagnosed;
+
+  /// No description provided for @searchCropDisease.
+  ///
+  /// In en, this message translates to:
+  /// **'Search crop / disease...'**
+  String get searchCropDisease;
+
+  /// No description provided for @noRemediesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No remedies found'**
+  String get noRemediesFound;
+
+  /// No description provided for @symptoms.
+  ///
+  /// In en, this message translates to:
+  /// **'Symptoms'**
+  String get symptoms;
+
+  /// No description provided for @listen.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen'**
+  String get listen;
 }
 
 class _AppLocalizationsDelegate

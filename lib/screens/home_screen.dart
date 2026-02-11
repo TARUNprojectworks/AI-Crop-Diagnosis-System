@@ -48,9 +48,9 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Categories',
-                      style: TextStyle(
+                    Text(
+                      l10n.categories,
+                      style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                     TextButton(
                       onPressed: () {},
                       child: Text(
-                        'View All →',
+                        l10n.viewAll,
                         style: TextStyle(color: theme.colorScheme.primary),
                       ),
                     ),
@@ -67,10 +67,10 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 16),
 
                 // Categories Row - Using image icons like reference
-                _buildCategoriesRow(context, currentLang, theme),
+                _buildCategoriesRow(context, currentLang, theme, l10n),
                 const SizedBox(height: 32),
 
-                _buildQuickTips(theme),
+                _buildQuickTips(theme, l10n),
               ],
             ),
           ),
@@ -117,7 +117,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Welcome',
+                l10n.welcome,
                 style: TextStyle(
                   color: theme.textTheme.bodySmall?.color?.withOpacity(0.7),
                   fontSize: 14,
@@ -212,44 +212,29 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCategoriesRow(
-      BuildContext context, String languageCode, ThemeData theme) {
+  Widget _buildCategoriesRow(BuildContext context, String languageCode,
+      ThemeData theme, AppLocalizations l10n) {
     // Categories with 3D-style emoji/image representations
     final categories = [
       {
         'id': 'paddy',
         'emoji': '🌾',
-        'name': {
-          'en': 'Cereals',
-          'hi': 'अनाज',
-          'te': 'తృణధాన్యాలు',
-          'ta': 'தானியங்கள்'
-        }
+        'name': l10n.cereals,
       },
       {
         'id': 'wheat',
         'emoji': '🫛',
-        'name': {
-          'en': 'Legumes',
-          'hi': 'दालें',
-          'te': 'పప్పులు',
-          'ta': 'பருப்புகள்'
-        }
+        'name': l10n.legumes,
       },
       {
         'id': 'fruits',
         'emoji': '🍉',
-        'name': {'en': 'Fruits', 'hi': 'फल', 'te': 'పండ్లు', 'ta': 'பழங்கள்'}
+        'name': l10n.fruits,
       },
       {
         'id': 'vegetables',
         'emoji': '🥦',
-        'name': {
-          'en': 'Vegetables',
-          'hi': 'सब्जियां',
-          'te': 'కూరగాయలు',
-          'ta': 'காய்கறிகள்'
-        }
+        'name': l10n.vegetables,
       },
     ];
 
@@ -259,8 +244,7 @@ class HomeScreen extends StatelessWidget {
         return _buildCategoryCard(
           context,
           emoji: category['emoji'] as String,
-          name: (category['name'] as Map<String, String>)[languageCode] ??
-              (category['name'] as Map<String, String>)['en']!,
+          name: category['name'] as String,
           onTap: () => _navigateToCategory(context, category['id'] as String),
         );
       }).toList(),
@@ -326,6 +310,7 @@ class HomeScreen extends StatelessWidget {
     final languageProvider =
         Provider.of<LanguageProvider>(context, listen: false);
     final currentLang = languageProvider.currentLocale.languageCode;
+    final l10n = AppLocalizations.of(context)!;
 
     showModalBottomSheet(
       context: context,
@@ -339,7 +324,9 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              category == 'vegetables' ? 'Select Vegetable' : 'Select Fruit',
+              category == 'vegetables'
+                  ? l10n.selectVegetable
+                  : l10n.selectFruit,
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
@@ -369,22 +356,22 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildQuickTips(ThemeData theme) {
+  Widget _buildQuickTips(ThemeData theme, AppLocalizations l10n) {
     final tips = <Map<String, dynamic>>[
       {
         'icon': Icons.wb_sunny_outlined,
-        'title': 'Use good lighting',
-        'desc': 'Take a clear photo in bright light for better detection.'
+        'title': l10n.useGoodLighting,
+        'desc': l10n.useGoodLightingDesc,
       },
       {
         'icon': Icons.center_focus_strong,
-        'title': 'Focus on the leaf',
-        'desc': 'Keep the affected area centered and avoid blur.'
+        'title': l10n.focusOnLeaf,
+        'desc': l10n.focusOnLeafDesc,
       },
       {
         'icon': Icons.cleaning_services_outlined,
-        'title': 'Clean camera lens',
-        'desc': 'Wipe the lens for sharper images.'
+        'title': l10n.cleanCameraLens,
+        'desc': l10n.cleanCameraLensDesc,
       },
     ];
 
@@ -392,7 +379,7 @@ class HomeScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Quick Tips',
+          l10n.quickTips,
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
